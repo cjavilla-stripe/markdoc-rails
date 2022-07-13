@@ -1,24 +1,14 @@
-# README
+# Render markdown content using [Markdoc](https://markdoc.dev) on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting started:
 
-Things you may want to cover:
+```bash
+bin/rails db:create db:migrate
+bin/dev
+```
 
-* Ruby version
+Add posts to `posts/`.
 
-* System dependencies
+Checkout the `PostsController` to see how it's wired up.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Notice the `MarkdocCallout` lit component on the client.
