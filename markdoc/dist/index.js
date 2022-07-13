@@ -7804,9 +7804,9 @@
     }
   });
 
-  // blog/src/schema/Callout.markdoc.js
+  // markdoc/src/schema/Callout.markdoc.js
   var require_Callout_markdoc = __commonJS({
-    "blog/src/schema/Callout.markdoc.js"(exports, module) {
+    "markdoc/src/schema/Callout.markdoc.js"(exports, module) {
       module.exports = {
         render: "markdoc-callout",
         description: "Display the enclosed content in a callout box",
@@ -7828,7 +7828,7 @@
     }
   });
 
-  // blog/src/index.js
+  // markdoc/src/index.js
   var Markdoc = require_dist();
   var callout = require_Callout_markdoc();
   var tags = {

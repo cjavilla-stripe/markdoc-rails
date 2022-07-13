@@ -72,3 +72,5 @@ group :test do
 end
 
 gem "mini_racer", "~> 0.6.2"
+
+gem "front_matter_parser", "~> 1.0"

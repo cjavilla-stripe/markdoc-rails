@@ -10,6 +10,6 @@
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
-    "build:blog": "esbuild blog/src/index.js --bundle --sourcemap --outdir=blog/dist"
+    "build:markdoc": "esbuild markdoc/src/index.js --bundle --sourcemap --outdir=markdoc/dist"
   }
 }

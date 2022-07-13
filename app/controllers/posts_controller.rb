@@ -1,6 +1,15 @@
 class PostsController < ApplicationController
   def index
+    files = Dir.glob(File.join(Rails.root, "posts", "*.md"))
+    @posts = files.map do |f|
+      parsed = FrontMatterParser::Parser.parse_file(
+        f,
+        loader: FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Date])
+      )
+      Post.new(f, parsed.front_matter)
+    end
   end
+
 
   def show
     post_name = params[:id]
@@ -13,8 +22,8 @@ class PostsController < ApplicationController
     # Run from the dist entry point
     # New markdoc components aren't added for my blog
     # too frequently, but when they are we need to rebiuld
-    # with `npm run build:blog`
-    entry_point = File.read(File.join(Rails.root, "blog", "dist", "index.js"))
+    # with `npm run build:markdoc`
+    entry_point = File.read(File.join(Rails.root, "markdoc", "dist", "index.js"))
 
     # Render as markdoc
     context = MiniRacer::Context.new
