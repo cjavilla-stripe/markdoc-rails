@@ -15,6 +15,6 @@ class Meow
 end
 ```
 
-{% callout type="warning" %}
-This is a warning callout
+{% callout title="Yellow Snow" type="warning" %}
+Don't eat the yellow snow.
 {% /callout %}

@@ -1,6 +1,9 @@
 const Markdoc = require('@markdoc/markdoc')
+const callout = require('./schema/Callout.markdoc')
 
-const tags = {};
+const tags = {
+  callout
+};
 
 function markdocRender(doc) {
   const ast = Markdoc.parse(doc);
@@ -15,4 +18,9 @@ console.log(markdocRender(`
 # Testing 1.2.3.
 
 - bang 💥
+{% callout type="warning" %}
+
+test
+
+{% /callout %}
 `))

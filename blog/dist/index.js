@@ -7804,9 +7804,36 @@
     }
   });
 
+  // blog/src/schema/Callout.markdoc.js
+  var require_Callout_markdoc = __commonJS({
+    "blog/src/schema/Callout.markdoc.js"(exports, module) {
+      module.exports = {
+        render: "markdoc-callout",
+        description: "Display the enclosed content in a callout box",
+        children: ["paragraph", "tag", "list"],
+        attributes: {
+          type: {
+            type: String,
+            default: "note",
+            matches: ["caution", "check", "note", "warning"],
+            errorLevel: "critical",
+            description: 'Controls the color and icon of the callout. Can be: "caution", "check", "note", "warning"'
+          },
+          title: {
+            type: String,
+            description: "The title displayed at the top of the callout"
+          }
+        }
+      };
+    }
+  });
+
   // blog/src/index.js
   var Markdoc = require_dist();
-  var tags = {};
+  var callout = require_Callout_markdoc();
+  var tags = {
+    callout
+  };
   function markdocRender(doc) {
     const ast = Markdoc.parse(doc);
     const content = Markdoc.transform(ast, { tags });
@@ -7817,6 +7844,11 @@
 # Testing 1.2.3.
 
 - bang \u{1F4A5}
+{% callout type="warning" %}
+
+test
+
+{% /callout %}
 `));
 })();
 //# sourceMappingURL=index.js.map
